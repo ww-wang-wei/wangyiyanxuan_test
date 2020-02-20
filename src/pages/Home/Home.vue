@@ -145,6 +145,110 @@
           </div>
         </div>
       </div>
+      <div class="categoryHotSell">
+        <div class="cateTitle">
+          <span>类目热销榜</span>
+        </div>
+        <div class="content">
+          <div class="contentTop">
+            <div class="contentT" v-for="(item,index) in hotSell" :key="index">
+              <a :href="item.targetUrl">
+                <div class="name">
+                  <span>{{item.categoryName}}</span>
+                </div>
+                <div class="picWrap">
+                  <img :src="item.showPicUrl" alt="">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="contentBottom">
+            <div class="contentB" v-for="(item,index) in hotSellLists" :key="index">
+              <a :href="item.targetUrl">
+                <div class="name">
+                  <span>{{item.categoryName}}</span>
+                </div>
+                <div class="picWrap">
+                  <img :src="item.showPicUrl" alt="">
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flashSale">
+        <div class="flashTitle">
+          <div class="left">
+            <span>限时购</span>
+            <div class="count">
+              <CountTime />
+            </div>
+          </div>
+          <a class="right" href="">
+            <div class="more">更多></div>
+          </a>
+        </div>
+        <div class="flashSalecontent">
+          <div class="flashSaleItem" v-for="(item,index) in flashSale" :key="index">
+            <a href="javascript:void(0)">
+              <div class="picWrap">
+                <img :src="item.showPicUrl" alt="">
+              </div>
+              <div class="price">
+                <span class="newP">¥{{item.activityPrice}}</span>
+                <span class="oldP">¥{{item.originPrice}}</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="newItem">
+        <div class="newItemTitle">
+          <div class="left">
+            <span>新品首发</span>
+          </div>
+          <a class="right" href="">
+            <div class="more">更多></div>
+          </a>
+        </div>
+        <div class="newItemcontent">
+          <div class="newItemItem" v-for="(item,index) in newItemList" :key="index">
+            <a href="javascript:void(0)">
+              <div class="picWrap">
+                <img :src="item.showPicUrl" alt="">
+              </div>
+              <div class="dec">
+                <span class="name">{{item.name}}</span>
+                <div class="price">
+                  <span>¥{{item.retailPrice}}</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="sceneLightShoppingGuide">
+        <div class="sItem" v-for="(item,index) in sceneLightShoppingGuide" :key="index">
+          <a href="javascript:void(0)">
+            <div class="title">{{item.styleItem.title}}</div>
+            <div class="desc">{{item.styleItem.desc}}</div>
+            <div class="picWrap">
+              <img :src="item.styleItem.picUrlList[0]" alt="">
+              <img :src="item.styleItem.picUrlList[1]" alt="">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="btns">
+        <a href="/downloadapp?_stat_from=search_pz_baidu_29&appAwakeUrl=http%3a%2f%2fm.you.163.com">下载APP</a>
+        <a href="https://you.163.com?_m_forcepc_=true&_m_anonid_=c3e4d6ee-31a6-4a73-95ec-833ce8f02a83">电脑版</a>
+      </div>
+      <p>
+        <span>网易公司版权所有 © 1997-2020</span>
+        <span>食品经营许可证：JY13301080111719</span>
+      </p>
     </div>
   </div>
 </template>
@@ -155,7 +259,10 @@ import Swiper from "swiper"
 import 'swiper/css/swiper.min.css';
 import goodsClass from '../../../datas/indexCateModule.json'
 import indexData from '../../../datas/index.json'
+import CountTime from '../../components/CountTime/CountTime'
+import {mapState} from 'vuex'
 export default {
+  components:{CountTime},
   data() {
     return {
       goodsClass:[],
@@ -164,11 +271,16 @@ export default {
       floorTop:[],
       floorFirst:[],
       floorSec:[],
-      floorTh:[]
-
+      floorTh:[],
+      hotSells:[],
+      hotSell:[],
+      hotSellList:[],
+      flashSale:[],
+      newItemList:[],
+      sceneLightShoppingGuide:[]
     }
   },
-  mounted() {
+  async mounted() {
     new BScroll(".navScroll", {
       scrollX: true
     })
@@ -189,10 +301,23 @@ export default {
     this.floorFirst = indexData.bigPromotionModule.floorList[1].cells
     this.floorSec = indexData.bigPromotionModule.floorList[2].cells
     this.floorTh = indexData.bigPromotionModule.floorList[3].cells
-    console.log(this.floorTop)
-    console.log(this.floorFirst)
-    console.log(this.floorSec)
-    console.log(this.floorTh)
+    this.hotSells = indexData.categoryHotSellModule.categoryList
+    this.hotSell = indexData.categoryHotSellModule.categoryList.slice(0,2)
+    this.hotSellLsit = indexData.categoryHotSellModule.categoryList.slice(2, indexData.categoryHotSellModule.categoryList.length)
+    this.flashSale = indexData.flashSaleModule.itemList
+    this.newItemList = indexData.newItemList.slice(0,-2)
+    this.sceneLightShoppingGuide = indexData.sceneLightShoppingGuideModule
+
+    console.log(this.hotSellLsit)
+
+    this.$store.dispatch('getHotSell')
+   
+    
+  },
+  computed:{
+    ...mapState({
+      hotSellLists: state => state.hotSellList
+    })
   }
 }
 </script>
@@ -533,5 +658,274 @@ export default {
                 text-align center
                 line-height 32px
                 border-radius 4px
-
+    .categoryHotSell
+      background-color #fff
+      width 100%
+      height 710px
+      margin-bottom 20px
+      .cateTitle
+        width 100%
+        height 100px
+        padding-left 30px
+        line-height 100px
+        span  
+          font-size 32px
+      .content
+        width 100%
+        height 610px
+        padding 0 20px 20px 30px
+        box-sizing border-box
+        .contentTop
+          display flex
+          height 200px
+          .contentT
+            position relative
+            width 340px
+            height 200px
+            background #F9F3E4
+            margin 0 10px 10px 0
+            &:nth-child(2)
+              background #EBEFF6
+            .name
+              font-size 28px
+              margin-top 66px
+              padding-left 24px
+              color #333
+              box-sizing border-box
+              &::before
+                content ''
+                width 48px
+                height 4px
+                position absolute
+                bottom 80px
+                background #333
+            .picWrap
+              width 200px
+              height 200px
+              position absolute
+              top 0
+              right 0
+              img
+                width 200px
+                height 200px
+        .contentBottom
+          display flex
+          height 360px
+          margin-top 10px
+          flex-wrap wrap
+          .contentB
+            width 165px
+            height 180px
+            background #F5F5F5
+            display flex
+            margin 0 10px 10px 0
+            .name
+              font-size 24px
+              color #333
+              text-align center
+              margin-top 10px
+              width 165px
+              height 36px
+              line-height 36px
+            .picWrap
+              width 120px
+              height 120px
+              margin-left 23px
+              margin-top 2px
+              img
+                width 120px
+                height 120px
+    .flashSale
+      background-color #fff
+      width 100%
+      height 710px
+      margin-bottom 20px
+      position relative
+      .flashTitle
+        width 100%
+        height 100px
+        padding 0 30px
+        box-sizing border-box
+        line-height 100px
+        display flex
+        .left
+          float left
+          display flex
+          span  
+            font-size 32px
+          .count
+            width 182px
+            height 99px
+            padding-top 33px
+            box-sizing border-box
+        .right
+          display block
+          width 77px
+          height 99px
+          position absolute
+          right 30px
+          font-size 28px
+          color #333
+      .flashSalecontent
+        width 100%
+        height 600px
+        padding 0 10px 0 30px
+        box-sizing border-box   
+        display flex
+        flex-wrap wrap
+        .flashSaleItem
+          width 216px
+          height 300px
+          margin-right 20px
+          padding-bottom 30px
+          box-sizing border-box
+          a
+            .picWrap
+             width 216px
+             height 216px
+             background #F5F5F5
+             margin-bottom 12px
+             img 
+              width 216px
+              height 216px
+            .price
+              width 216px
+              height 42px
+              padding-left 20px
+              box-sizing border-box
+              line-height 42px
+              .newP
+                color #DD1A21
+                font-size 28px
+                margin-right 12px
+              .oldP
+                text-decoration line-through
+                font-size 24px
+    .newItem
+          background-color #fff
+          width 100%
+          height 923px
+          margin-bottom 20px
+          position relative
+          .newItemTitle
+            width 100%
+            height 100px
+            padding 0 30px
+            box-sizing border-box
+            line-height 100px
+            display flex
+            .left
+              float left
+              display flex
+              span  
+                font-size 32px
+            .right
+              display block
+              width 77px
+              height 99px
+              position absolute
+              right 30px
+              font-size 28px
+              color #333
+          .newItemcontent
+            width 100%
+            height 600px
+            padding 0 10px 0 30px
+            box-sizing border-box   
+            display flex
+            flex-wrap wrap
+            .newItemItem
+              width 216px
+              height 398px
+              margin-right 20px
+              padding-bottom 30px
+              box-sizing border-box
+              a
+                .picWrap
+                  width 216px
+                  height 216px
+                  background #F5F5F5
+                  margin-bottom 12px
+                  img 
+                    width 216px
+                    height 216px
+                .dec
+                  width 216px
+                  height 42px
+                  box-sizing border-box
+                  line-height 38px
+                  .name
+                    display block
+                    width 215px
+                    height 67px
+                    color #333
+                    overflow hidden
+                    text-overflow ellipsis
+                    display -webkit-box
+                    -webkit-line-clamp 2
+                    -webkit-box-orient vertical
+                  .price
+                    color #DD1A21
+                    font-size 32px
+                    margin 10px 12px 0 0
+    .sceneLightShoppingGuide
+      background #fff
+      width 100%
+      height 576px
+      padding 10px 30px 30px 26px
+      box-sizing border-box
+      display flex
+      flex-wrap wrap
+      .sItem
+        display block
+        background #F5F5F5
+        width 343px
+        height 264px
+        margin 4px 0 0 4px
+        padding 20px 0 0 20px
+        box-sizing border-box
+        .title
+          height 48px
+          line-height 48px
+          font-size 32px
+          color #333
+          padding-left 10px
+          box-sizing border-box
+        .desc
+          box-sizing border-box
+          padding-left 10px
+          height 36px
+          line-height 36px
+        .picWrap
+          img
+            width 150px
+            height 150px
+  .footer
+    width 100%
+    height 244px
+    background-color #414141
+    margin-top 20px
+    padding 54px 20px 28px 20px
+    box-sizing border-box
+    .btns
+      margin-bottom 36px
+      text-align center
+      a
+        display inline-block
+        width 172px
+        height 62px
+        color #fff
+        font-size 24px
+        border 1px solid #999
+        background-color: transparent
+        text-align center
+        line-height 62px
+        margin-right 50px
+    p
+      font-size 24px
+      color #999
+      line-height 27px
+      span
+        display block
+        text-align center
 </style>

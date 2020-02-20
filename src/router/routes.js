@@ -3,6 +3,7 @@ import Classify from '../pages/Classify/Classify.vue'
 import Topic from '../pages/Topic/Topic.vue'
 import Buycar from '../pages/Buycar/Buycar.vue'
 import Personal from '../pages/Personal/Personal.vue'
+import Search from '../pages/Search/Search.vue'
 
 export default[
     {
@@ -24,6 +25,10 @@ export default[
     {
         path: '/personal',
         component:Personal,
+    },
+    {
+        path: '/search',
+        component: Search,
     },
     {
         path: '/',
