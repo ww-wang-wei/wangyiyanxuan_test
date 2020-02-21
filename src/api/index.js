@@ -16,3 +16,11 @@ export const getdata = () => ajax({
 export const gethotSellList = () => ajax({
     url:'/getHotSell'
 })
+//分类列表请求
+export const getClassNavList = () => ajax({
+    url:'/getClassNav'
+})
+//分类列表详情
+export const getClassList = () => ajax({
+    url:'/getClassList'
+})

@@ -2,23 +2,30 @@
   <div id="classifyContainer">
     <div class="header">
       <div class="search">
-          <i class="iconfont icon-sousuo"></i>
-          <span class="placeholder">搜索商品, 共20259款好物</span>
-        </div>
+        <i class="iconfont icon-sousuo"></i>
+        <span class="placeholder">搜索商品, 共20259款好物</span>
+      </div>
     </div>
+    <ClassifyNav />
+    <ClassifyList />
   </div>
 </template>
 
 <script>
+
 import {mapState} from 'vuex'    //想要抽取数据  必须从vuex中 解构出来  mapState
+import ClassifyNav from '../../components/Classifys/ClassifyNav'
+import ClassifyList from '../../components/Classifys/classifyList'
 export default {
+  components:{ClassifyNav,ClassifyList},
   data(){
     return{
-      data:''
+      
     }
   },
   mounted(){
     this.$store.dispatch('gethome')
+    
   },
   computed:{
     ...mapState({
@@ -33,30 +40,32 @@ export default {
       拿出来的数据可以直接用再页面  也可以存到data 中  一般是直接用
       后期返回数据就在 server.js 中返回自己需要的data
       */
-      shuju : state => state.HomeNeedDatas
-    })
+      shuju : state => state.HomeNeedDatas,
+      })
   },
 
   /* 
   watch 监视数据有没有
   */
   watch:{
-  shuju(){
-    console.log(this.shuju)
-  }
+    shuju(){
+      console.log(this.shuju)
+    }
   }
 }
 </script>
 
 <style lang="stylus">
 #classifyContainer
-  background #fff
+  overflow hidden
   .header
+    background #fff
     width 100%
-    height 88px
+    height 86px
     padding 0 30px 
     display flex
     align-items center
+    border 2px solid #ededed
     .search 
       width 690px
       height 56px
@@ -70,4 +79,6 @@ export default {
       .placeholder 
         font-size 28px
         color #666
+
+
 </style>

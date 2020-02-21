@@ -7,12 +7,15 @@ api 中定义请求的方法
 */
 import {
     getdata,
-    gethotSellList
+    gethotSellList,
+    getClassNavList,
+    getClassList
 } from '../api/index.js'
 
 import {
     GETHOMEDATA,
-    SAVE_HOTSELLLIST
+    SAVE_HOTSELLLIST,
+    SAVE_NAVLIST
 } from './mutations-type.js'
 
 
@@ -29,5 +32,15 @@ export default {
    async getHotSell ({commit}){
         let result  =   await gethotSellList()
             commit(SAVE_HOTSELLLIST,result) 
+    },
+    //发送分类列表请求
+    async getClassNav({commit}){
+        let result = await getClassNavList()
+        commit(SAVE_NAVLIST,result)
+    },
+    //发送分类列表详情请求
+    async getClassLists({commit}){
+        let result = await getClassList()
+        commit(SAVE_NAVLIST,result)
     }
 }

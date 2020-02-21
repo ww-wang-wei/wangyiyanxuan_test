@@ -42,8 +42,8 @@
           </div>
         </div>
         <div class="allClass">
-          <div class="linear">
-          </div>
+          <!-- <div class="linear">
+          </div> -->
           <div class="toggle">
             <div class="all"></div>
           </div>
@@ -326,8 +326,8 @@ export default {
 #homeContainer 
   padding-bottom 100px
   .headerContainer 
-    // position fixed
-    // z-index 2
+    position fixed
+    z-index 2
     background #fff
     .header 
       width 100%
@@ -409,7 +409,7 @@ export default {
         height 60px
         display flex
         .linear
-          width 60px
+          width 40px
           height 60px
           background-image linear-gradient(to right,rgba(255,255,255,0) 0,#fff 100%)
         .toggle 
@@ -425,7 +425,7 @@ export default {
             margin-top 15px
             display inline-block
   .swiper-container
-    // padding-top 88px
+    padding-top 88px
     width 100%
     height 370px
     img 

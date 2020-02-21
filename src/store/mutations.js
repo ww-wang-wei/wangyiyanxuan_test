@@ -5,7 +5,10 @@ vuex 中可直接修改 state 中状态数据的地方
 
 import {
     GETHOMEDATA,
-    SAVE_HOTSELLLIST
+    SAVE_HOTSELLLIST,
+    SAVE_NAVLIST,
+    SAVE_NAVID,
+    SAVE_CLASSLIST
 } from './mutations-type.js'
 
 
@@ -21,7 +24,16 @@ export default {
          */
         state.HomeNeedDatas = data
     },
-    [SAVE_HOTSELLLIST](state,data){
-        state.hotSellList = data
+    [SAVE_HOTSELLLIST](state,hotSellList){
+        state.hotSellList = hotSellList
+    },
+    [SAVE_NAVLIST](state,classNavList){
+        state.classNavList = classNavList
+    },
+    [SAVE_NAVID](state,navId){
+        state.navId = navId
+    },
+    [SAVE_CLASSLIST](state,classList){
+        state.classList = classList
     }
 }

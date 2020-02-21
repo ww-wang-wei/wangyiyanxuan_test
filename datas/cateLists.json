@@ -1,5 +1,6 @@
 [
-	{
+	{	
+		"name": "推荐专区",
 		"categoryList": [
 				{
 						"showIndex": 0,
@@ -202,10 +203,11 @@
 						"subCateList": []
 				}
 		],
-		"name": "",
-		"id": 11
+		"id": 11,
+		"picUrl":"https://yanxuan.nosdn.127.net/868844d3288f130c1aa808312dbbd1d8.png?quality=75&type=webp&imageView&thumbnail=0x196"
 	},
-	{
+	{	
+		"name": "宅家防护",
 		"categoryList": [
 				{
 						"showIndex": 0,
@@ -433,10 +435,12 @@
 						"subCateList": []
 				}
 		],
-		"name": "",
-		"id": 12
+		"id": 12,
+		"picUrl":"https://yanxuan.nosdn.127.net/37d7317bfb19641d744c6a45fb5d350a.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
-	{
+	{	
+		"name": "爆品专区",
 		"categoryList": [
 				{
 						"showIndex": 0,
@@ -664,10 +668,12 @@
 						"subCateList": []
 				}
 		],
-		"name": "",
-		"id": 13
+		"id": 13,
+		"picUrl":"https://yanxuan.nosdn.127.net/edc311882c97da117f860264548212e1.png?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
-	{
+	{	
+		"name": "新品专区",
 		"categoryList": [
 				{
 						"showIndex": 18,
@@ -774,7 +780,9 @@
 						"subCateList": []
 				}
 		],
-		"id": 109217021
+		"id": 109217021,
+		"picUrl":"https://yanxuan.nosdn.127.net/dec6ff5ae8bae410809598950ba1f5b4.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
 	{
 			"categoryType": 0,
@@ -1216,7 +1224,9 @@
 							"subCateList": [],
 							"frontName": "贴心设计，照顾爱宠舒适生活"
 					}
-			]
+			],
+			"picUrl":"https://yanxuan.nosdn.127.net/e078499f093213840f0f5c94bc938f01.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
 	{
 			"categoryType": 0,
@@ -1943,7 +1953,9 @@
 							"subCateList": [],
 							"frontName": "海洋环保"
 					}
-			]
+			],
+			"picUrl":"https://yanxuan.nosdn.127.net/9fafb4adb40303dc2914c3aa04da03df.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
 	{
 			"categoryType": 0,
@@ -2319,7 +2331,9 @@
 							"subCateList": [],
 							"frontName": "全球制造，环球美食"
 					}
-			]
+			],
+			"picUrl":"https://yanxuan.nosdn.127.net/a657e5214585b1825b7970c4b956e3c2.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
 	{
 			"categoryType": 0,
@@ -2738,7 +2752,9 @@
 							"subCateList": [],
 							"frontName": "解锁身体里的快乐秘密"
 					}
-			]
+			],
+			"picUrl":"https://yanxuan.nosdn.127.net/0cf6e47037b7cc7688ec9845b543525f.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
 	{
 			"categoryType": 0,
@@ -3220,7 +3236,9 @@
 							"subCateList": [],
 							"frontName": "休闲实用 出游必备"
 					}
-			]
+			],
+			"picUrl":"https://yanxuan.nosdn.127.net/3dbb62e200611707a0f818833b823d9a.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
 	{
 			"categoryType": 0,
@@ -3675,7 +3693,9 @@
 							"subCateList": [],
 							"frontName": "运动随心"
 					}
-			]
+			],
+			"picUrl":"https://yanxuan.nosdn.127.net/7325584e6fcaf7a6af0fa469b605ac0e.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
 	{
 			"categoryType": 0,
@@ -3978,7 +3998,9 @@
 							"subCateList": [],
 							"frontName": "造乐，开启一段别具一格的音乐历程"
 					}
-			]
+			],
+			"picUrl":"https://yanxuan.nosdn.127.net/6ea5a277746a4e9849040bf2c619d6e9.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
 	},
 	{
 					"categoryType": 0,
@@ -4609,6 +4631,8 @@
 									"subCateList": [],
 									"frontName": "韩国制造精巧好物"
 							}
-					]
-			}
+					],
+					"picUrl":"https://yanxuan.nosdn.127.net/a29e68a6f85dc934412b478edc907ee8.jpg?quality=75&type=webp&imageView&thumbnail=0x196"
+
+	}
 ]

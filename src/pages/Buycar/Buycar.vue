@@ -1,6 +1,6 @@
 <template>
-  <div>
-      Buycar
+  <div class="buyCarContainer">
+    
   </div>
 </template>
 

@@ -1,2 +1,5 @@
 export let GETHOMEDATA = 'gethomedata'
 export let SAVE_HOTSELLLIST = 'save_hotselllist'
+export let SAVE_NAVLIST = 'save_navlist'
+export let SAVE_NAVID = 'save_navid'
+export let SAVE_CLASSLIST = 'save_classlist'
