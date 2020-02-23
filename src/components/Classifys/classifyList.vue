@@ -50,7 +50,6 @@ export default {
                 }
             }
         })
-        console.log(this.picUrl)
     },
     methods: {
             changeArray(){
@@ -72,7 +71,6 @@ export default {
     },
     watch: {
             '$store.state.navId'(){
-                console.log('vuex发生改变');
                 this.changeArray()
             }
         },

@@ -9,13 +9,19 @@ import {
     getdata,
     gethotSellList,
     getClassNavList,
-    getClassList
+    getClassList,
+    getTopicNav,
+    getManual,
+    getMoreManual
 } from '../api/index.js'
 
 import {
     GETHOMEDATA,
     SAVE_HOTSELLLIST,
-    SAVE_NAVLIST
+    SAVE_NAVLIST,
+    SAVE_TOPICNAV,
+    SAVE_TOPICLIST,
+    SAVE_TOPICLISTS
 } from './mutations-type.js'
 
 
@@ -41,6 +47,22 @@ export default {
     //发送分类列表详情请求
     async getClassLists({commit}){
         let result = await getClassList()
-        commit(SAVE_NAVLIST,result)
+        commit(SAVE_NAVLIST,result.categoryList)
+    },
+    //发送值得买列表请求
+    async getTopNav({commit}){
+        let result = await getTopicNav()
+        commit(SAVE_TOPICNAV,result.data.navList)
+    },
+    //发送值得买瀑布流请求
+    async getTopList({commit}){
+        let result = await getManual()
+        commit(SAVE_TOPICLIST,result.data)
+    },
+    //发送值得买瀑布流更多请求
+    async getTopMore({commit}){
+        let result = await getMoreManual()
+        commit(SAVE_TOPICLISTS,result.data.result)
     }
+    
 }

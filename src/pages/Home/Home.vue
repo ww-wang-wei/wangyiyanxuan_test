@@ -5,9 +5,13 @@
         <div class="logo"></div>
         <div class="search">
           <i class="iconfont icon-sousuo"></i>
-          <span class="placeholder">搜索商品, 共20259款好物</span>
+          <span class="placeholder">
+            <router-link to="/Search">搜索商品, 共20259款好物</router-link>
+          </span>
         </div>
-        <div class="toLogin">登录</div>
+        <div class="toLogin">
+          <router-link to="/Personal">登录</router-link>
+        </div>
       </div>
       <div class="navContainer">
         <div class="navScroll">
@@ -42,8 +46,8 @@
           </div>
         </div>
         <div class="allClass">
-          <!-- <div class="linear">
-          </div> -->
+          <div class="linear">
+          </div>
           <div class="toggle">
             <div class="all"></div>
           </div>
@@ -326,6 +330,7 @@ export default {
 #homeContainer 
   padding-bottom 100px
   .headerContainer 
+    width 100%
     position fixed
     z-index 2
     background #fff
@@ -364,7 +369,8 @@ export default {
         border-radius 8px
         line-height 40px
         text-align center
-        color #dd1a21
+        a
+          color #dd1a21
     .navContainer
       display flex
       width 100%

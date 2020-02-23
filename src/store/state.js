@@ -7,5 +7,8 @@ export default {
     hotSellList:[],
     classNavList:[],
     navId: 11,
-    classList:[]
+    classList:[],
+    topicNav:[],
+    topicList:[],
+    topicLists:[]
 }

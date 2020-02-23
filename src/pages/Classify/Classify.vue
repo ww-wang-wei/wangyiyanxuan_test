@@ -3,7 +3,7 @@
     <div class="header">
       <div class="search">
         <i class="iconfont icon-sousuo"></i>
-        <span class="placeholder">搜索商品, 共20259款好物</span>
+        <span class="placeholder"><router-link to="/Search">搜索商品, 共20259款好物</router-link></span>
       </div>
     </div>
     <ClassifyNav />
