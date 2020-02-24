@@ -5,6 +5,7 @@ import Buycar from '../pages/Buycar/Buycar.vue'
 import Personal from '../pages/Personal/Personal.vue'
 import Search from '../pages/Search/Search.vue'
 import MailLogin from '../pages/Personal/MailLogin/MailLogin.vue'
+import ClassifyList from '../pages/Classify/ClassifyList/ClassifyList.vue'
 
 export default[
     {
@@ -19,7 +20,13 @@ export default[
         component:Classify,
         meta: {
             isShowFooter: true
-          }
+        },
+        children: [
+          {
+            path: '/classify/classifyList/:id',
+            component: ClassifyList
+          },
+        ]
     },
     {
         path: '/topic',

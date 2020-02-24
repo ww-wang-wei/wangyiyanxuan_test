@@ -32,7 +32,7 @@
         let {username, pwd} = this
         let names = ['username', 'pwd']
         const success = await this.$validator.validateAll(names) // 对所有表单项进行验证
-        // console.log(this.$validator.validateAll(names));
+        console.log(this.$validator.validateAll(names));
         if(success){ // 前端验证成功
           // 2. 后端验证逻辑.....................          
             alert('登录成功')
@@ -55,6 +55,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
 #login
   width 100%
+  overflow hidden
   .loginWrap
     width 100%
     height 100%

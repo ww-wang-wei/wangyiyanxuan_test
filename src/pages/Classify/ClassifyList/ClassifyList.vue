@@ -27,7 +27,7 @@
 <script>
 import BScroll from 'better-scroll'
 import {mapState} from 'vuex'
-import classLists from '../../../datas/cateLists.json'
+import classLists from '../../../../datas/cateLists.json'
 export default {
     data(){
         return{
@@ -36,6 +36,7 @@ export default {
         }
     },
     mounted(){
+        this.changeArray()
         this.$nextTick(() => { 
                 this.scroll = new BScroll('.wrapper', {click: true}) 
             })
@@ -72,6 +73,20 @@ export default {
     watch: {
             '$store.state.navId'(){
                 this.changeArray()
+                this.$nextTick(() => { 
+                    this.scroll = new BScroll('.wrapper', {click: true}) 
+            })
+            this.$nextTick(() => { 
+            for (const item in classLists) {
+                if (classLists.hasOwnProperty(item)) {
+                    const element = classLists[item];
+                    if (element.id == this.navId) {
+                        this.newArray = element.categoryList?element.categoryList:element.subCateList
+                        this.picUrl = element.picUrl
+                    }
+                }
+            }
+        })
             }
         },
 }

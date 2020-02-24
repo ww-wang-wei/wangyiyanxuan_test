@@ -88,6 +88,13 @@
             reNav(){
                  this.newNav = [this.topNav.slice(0,2),this.topNav.slice(2,4),this.topNav.slice(4,6),this.topNav.slice(6,8),this.topNav.slice(8,10),this.topNav.slice(10,12),this.topNav.slice(12,14),this.topNav.slice(14,16)] 
             },
+            scroll(scrollData){
+                // console.log(scrollData)
+            },
+	        switchCol(col){
+	            this.col = col
+	            console.log(this.col)
+            },
             loadmore(){
                 this.data = this.data.concat(this.data)
           }

@@ -15,7 +15,7 @@
 
 import {mapState} from 'vuex'    //想要抽取数据  必须从vuex中 解构出来  mapState
 import ClassifyNav from '../../components/Classifys/ClassifyNav'
-import ClassifyList from '../../components/Classifys/classifyList'
+import ClassifyList from './ClassifyList/ClassifyList'
 export default {
   components:{ClassifyNav,ClassifyList},
   data(){

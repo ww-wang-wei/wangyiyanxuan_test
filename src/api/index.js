@@ -21,6 +21,7 @@ export const getClassNavList = () => ajax({
     url:'/api/getClassNav'
 })
 //分类列表详情
+
 export const getClassList = () => ajax({
     url:'/api/getClassList'
 })
