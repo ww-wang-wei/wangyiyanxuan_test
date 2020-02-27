@@ -4,7 +4,12 @@
         <div class="searchTop">
           <div v-if="datas.defaultKeyword" class="inputContainer">
             <i class="icon iconfont icon-sousuo"></i>
-            <input type="text" :placeholder="datas.defaultKeyword.keyword" @keydown.enter="toSearch" v-model="keywords"/>
+            <input type="text" :placeholder="datas.defaultKeyword.keyword" @keyup.enter="toSearch(keywords)" v-model="keywords"/>
+            <ul class="keyList">
+              <li class="keyListItem" v-for="(item,index) in keyList" :key="index">
+                {{item}}
+              </li>
+            </ul>
           </div>
           <span @click="goToLast">取消</span>
         </div>
@@ -12,11 +17,11 @@
           <div class="header">
             <h3>热门搜索</h3>
           </div>
-          <div class="list">
-            <div v-for="(item, index) in datas.hotKeywordVOList" :key="index" class="listItem" :class="item.highlight?'highlight':''">
+          <ul class="list">
+            <li v-for="(item, index) in datas.hotKeywordVOList" :key="index" class="listItem" :class="item.highlight?'highlight':''">
               <span>{{datas.hotKeywordVOList[index].keyword}}</span>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
   </div>
@@ -28,7 +33,8 @@
     data() {
       return {
         datas:[],
-        keywords:''
+        keywords:'',
+        keyList:[]
       }
     },
     methods: {
@@ -42,9 +48,11 @@
       goToLast(){
         this.$router.go(-1);
       },
-        toSearch(){
-          console.log(123)
-        }
+      async toSearch (msg) {
+        let result = await this.$API.searchKeyword(msg)
+        this.keyList = result.data
+        console.log(this.keyList)
+      }
     },
     mounted() {
       this.getDatas()
@@ -63,7 +71,7 @@
     background #eee
     z-index 10
     .searchContent
-      width 750px
+      width 100%
       background-color #fff
       height 100%
       .searchTop
@@ -74,6 +82,7 @@
         border 1px solid #fff
         box-sizing border-box
         padding 0 30px
+        position relative
         .inputContainer
           display flex
           width 604px
@@ -97,6 +106,19 @@
             color rgba(0,0,0,0.8)
             padding 0 0 0 2px
             margin auto 0 
+          .keyList
+            width 100%
+            padding-left 30px
+            box-sizing border-box
+            background #fff
+            position absolute
+            top 88px
+            left 0 
+            .keyListItem
+              width 100%
+              height 90px
+              border-bottom 1px solid #eee
+              line-height 90px
         span 
           width 56px
           height 42px

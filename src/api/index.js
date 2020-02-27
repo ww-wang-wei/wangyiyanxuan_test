@@ -45,3 +45,14 @@ export const getSearch = () => ajax({
     method:'POST',
     url:' /foo/xhr/search/searchAutoComplete.json/:keywordPrefix'
 })
+//请求搜索框关键词数据
+export const searchKeyword = (keyword) => ajax({
+    method: 'POST',
+    url:'/foo/xhr/search/searchAutoComplete.json',
+    data:{
+      "keywordPrefix":keyword
+    },
+    headers:{
+      'content-type':'application/x-www-form-urlencoded'
+    }
+  })
