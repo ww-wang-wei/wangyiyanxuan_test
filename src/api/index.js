@@ -43,7 +43,7 @@ export const getMoreManual = () => ajax({
 //搜索接口
 export const getSearch = () => ajax({
     method:'POST',
-    url:' /foo/xhr/search/searchAutoComplete.json/:keywordPrefix'
+    url:' /foo/xhr/search/searchAutoComplete.json'
 })
 //请求搜索框关键词数据
 export const searchKeyword = (keyword) => ajax({
